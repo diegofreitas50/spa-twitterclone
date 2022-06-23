@@ -25,7 +25,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 
       const jwt = localStorage.getItem('jwt');
 
-      const response = await fetch('http://localhost:3001/tweets/search?message=' + onSearch, {
+      const response = await fetch('https://valinor-desafio-backend-production.up.railway.app/tweets/search?message=' + onSearch, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -49,7 +49,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
     const getTweets = async () => {
       const jwt = localStorage.getItem('jwt');
 
-      const response = await fetch('http://localhost:3001/tweets', {
+      const response = await fetch('https://valinor-desafio-backend-production.up.railway.app/tweets', {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -70,7 +70,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
   const viewMore = async () => {
     const jwt = localStorage.getItem('jwt');
 
-    const response = await fetch(`http://localhost:3001${nextUrl}`, {
+    const response = await fetch(`https://valinor-desafio-backend-production.up.railway.app${nextUrl}`, {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
@@ -81,16 +81,16 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
     setNextUrl(data.nextUrl);
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div>
-  //       <div className="p-3 border-b border-white border-opacity-15 sticky top-0 bg-dark z-50">
-  //         <span className="text-white text-xl font-extrabold">Início</span>
-  //       </div>
-  //       <div className="p-3 text-white text-xl font-extrabold">Carregando...</div>
-  //     </div>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <div>
+        <div className="p-3 border-b border-white border-opacity-15 sticky top-0 bg-dark z-50">
+          <span className="text-white text-xl font-extrabold">Início</span>
+        </div>
+        <div className="p-3 text-white text-xl font-extrabold">Carregando...</div>
+      </div>
+    );
+  }
 
   return (
     <div>
