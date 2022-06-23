@@ -25,7 +25,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 
       const jwt = localStorage.getItem('jwt');
 
-      const response = await fetch('https://valinor-desafio-backend-production.up.railway.app/tweets/search?message=' + onSearch, {
+      const response = await fetch('http://localhost:3001/tweets/search?message=' + onSearch, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -49,7 +49,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
     const getTweets = async () => {
       const jwt = localStorage.getItem('jwt');
 
-      const response = await fetch('https://valinor-desafio-backend-production.up.railway.app/tweets', {
+      const response = await fetch('http://localhost:3001/tweets', {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -70,7 +70,7 @@ const HomeCenterComponent: React.FC<{ onSearch: string }> = ({ onSearch }) => {
   const viewMore = async () => {
     const jwt = localStorage.getItem('jwt');
 
-    const response = await fetch(`https://valinor-desafio-backend-production.up.railway.app${nextUrl}`, {
+    const response = await fetch(`http://localhost:3001${nextUrl}`, {
       headers: {
         Authorization: `Bearer ${jwt}`,
       },
